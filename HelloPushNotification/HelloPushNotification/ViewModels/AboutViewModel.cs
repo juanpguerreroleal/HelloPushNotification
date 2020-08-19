@@ -10,7 +10,7 @@ namespace HelloPushNotification.ViewModels
         public AboutViewModel()
         {
             Title = "About";
-            OpenWebCommand = new Command(async () => await Browser.OpenAsync("https://aka.ms/xamain-quickstart"));
+            OpenWebCommand = new Command(async () => await Browser.OpenAsync("https://github.com/juanpguerreroleal"));
         }
 
         public ICommand OpenWebCommand { get; }
