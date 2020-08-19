@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Acr.UserDialogs;
+using HelloPushNotification.Views;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Text;
@@ -20,9 +22,12 @@ namespace HelloPushNotification.ViewModels
             }
             set 
             {
-                _id = value;
-                LoadData(Convert.ToInt32(value));
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Id)));
+                if (_id != value)
+                {
+                    _id = value;
+                    LoadData(Convert.ToInt32(value));
+                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Id)));
+                }
             }
         }
         private string _name;
@@ -48,8 +53,16 @@ namespace HelloPushNotification.ViewModels
 
         public async void LoadData(int TransferId)
         {
-            var item = await DataStore.GetTransferItemAsync(TransferId);
-            Name = item.Name;
+            try
+            {
+                var item = await DataStore.GetTransferItemAsync(TransferId);
+                Name = item.Name;
+            }
+            catch (Exception e)
+            {
+                await UserDialogs.Instance.AlertAsync("The transfer you are trying to see doesn't exist", "Non-existent transfer", "OK");
+                await Shell.Current.Navigation.PopToRootAsync();
+            }
         }
     }
 }

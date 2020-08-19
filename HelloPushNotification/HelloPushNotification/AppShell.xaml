@@ -32,7 +32,7 @@
     <TabBar>
         <ShellContent Title="About" Icon="tab_about.png" Route="AboutPage" ContentTemplate="{DataTemplate local:AboutPage}" />
         <ShellContent Title="Browse" Icon="tab_feed.png" ContentTemplate="{DataTemplate local:ItemsPage}" />
-        <local:TransferListPage Title="Transfers" Icon="tab_feed.png"/>
+        <ShellContent Title="Transfers" Route="TransferListPage" Icon="tab_feed.png" ContentTemplate="{DataTemplate local:TransferListPage}"/>
     </TabBar>
 
     <!--

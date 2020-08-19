@@ -9,6 +9,7 @@ using Android.OS;
 using Com.OneSignal;
 using System.Collections.Generic;
 using Com.OneSignal.Abstractions;
+using Acr.UserDialogs;
 
 namespace HelloPushNotification.Droid
 {
@@ -31,6 +32,7 @@ namespace HelloPushNotification.Droid
 
             // The promptForPushNotificationsWithUserResponse function will show the iOS push notification prompt. We recommend removing the following code and instead using an In-App Message to prompt for notification permission (See step 7)
             OneSignal.Current.RegisterForPushNotifications();
+            UserDialogs.Init(this);
 
             LoadApplication(new App());
         }
