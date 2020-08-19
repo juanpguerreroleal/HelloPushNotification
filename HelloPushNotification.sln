@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HelloPushNotification.iOS",
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HelloPushNotification", "HelloPushNotification\HelloPushNotification\HelloPushNotification.csproj", "{F772439C-24CB-4106-A1EC-2DFF808207A7}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OneSignalNotificationServiceExtension", "HelloPushNotification\HelloPushNotification.iOS\OneSignalNotificationServiceExtension\OneSignalNotificationServiceExtension.csproj", "{382F1467-F35C-4CD4-830F-1516EA626BE4}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -73,6 +75,16 @@ Global
 		{F772439C-24CB-4106-A1EC-2DFF808207A7}.Release|iPhoneSimulator.ActiveCfg = Release|Any CPU
 		{F772439C-24CB-4106-A1EC-2DFF808207A7}.Release|iPhoneSimulator.Build.0 = Release|Any CPU
 		{F772439C-24CB-4106-A1EC-2DFF808207A7}.Release|iPhoneSimulator.Deploy.0 = Release|Any CPU
+		{382F1467-F35C-4CD4-830F-1516EA626BE4}.Debug|Any CPU.ActiveCfg = Debug|iPhone
+		{382F1467-F35C-4CD4-830F-1516EA626BE4}.Debug|iPhone.ActiveCfg = Debug|iPhone
+		{382F1467-F35C-4CD4-830F-1516EA626BE4}.Debug|iPhone.Build.0 = Debug|iPhone
+		{382F1467-F35C-4CD4-830F-1516EA626BE4}.Debug|iPhoneSimulator.ActiveCfg = Debug|iPhoneSimulator
+		{382F1467-F35C-4CD4-830F-1516EA626BE4}.Debug|iPhoneSimulator.Build.0 = Debug|iPhoneSimulator
+		{382F1467-F35C-4CD4-830F-1516EA626BE4}.Release|Any CPU.ActiveCfg = Release|iPhone
+		{382F1467-F35C-4CD4-830F-1516EA626BE4}.Release|iPhone.ActiveCfg = Release|iPhone
+		{382F1467-F35C-4CD4-830F-1516EA626BE4}.Release|iPhone.Build.0 = Release|iPhone
+		{382F1467-F35C-4CD4-830F-1516EA626BE4}.Release|iPhoneSimulator.ActiveCfg = Release|iPhoneSimulator
+		{382F1467-F35C-4CD4-830F-1516EA626BE4}.Release|iPhoneSimulator.Build.0 = Release|iPhoneSimulator
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

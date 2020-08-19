@@ -6,6 +6,9 @@ using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 using Android.OS;
+using Com.OneSignal;
+using System.Collections.Generic;
+using Com.OneSignal.Abstractions;
 
 namespace HelloPushNotification.Droid
 {
@@ -21,6 +24,14 @@ namespace HelloPushNotification.Droid
 
             Xamarin.Essentials.Platform.Init(this, savedInstanceState);
             global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
+
+            OneSignal.Current.StartInit("YOUR_ONESIGNAL_APP_ID").Settings(new Dictionary<string, bool>() {
+                { IOSSettings.kOSSettingsKeyAutoPrompt, false },
+                { IOSSettings.kOSSettingsKeyInAppLaunchURL, false } }).InFocusDisplaying(OSInFocusDisplayOption.Notification).EndInit();
+
+            // The promptForPushNotificationsWithUserResponse function will show the iOS push notification prompt. We recommend removing the following code and instead using an In-App Message to prompt for notification permission (See step 7)
+            OneSignal.Current.RegisterForPushNotifications();
+
             LoadApplication(new App());
         }
         public override void OnRequestPermissionsResult(int requestCode, string[] permissions, [GeneratedEnum] Android.Content.PM.Permission[] grantResults)

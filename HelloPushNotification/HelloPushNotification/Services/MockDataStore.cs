@@ -3,12 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using HelloPushNotification.Models;
+using HelloPushNotification.ViewModels;
 
 namespace HelloPushNotification.Services
 {
     public class MockDataStore : IDataStore<Item>
     {
         readonly List<Item> items;
+        readonly List<TransferItemViewModel> transferItems;
 
         public MockDataStore()
         {
@@ -20,6 +22,24 @@ namespace HelloPushNotification.Services
                 new Item { Id = Guid.NewGuid().ToString(), Text = "Fourth item", Description="This is an item description." },
                 new Item { Id = Guid.NewGuid().ToString(), Text = "Fifth item", Description="This is an item description." },
                 new Item { Id = Guid.NewGuid().ToString(), Text = "Sixth item", Description="This is an item description." }
+            };
+            transferItems = new List<TransferItemViewModel>()
+            {
+                new TransferItemViewModel
+                {
+                    Id = 1,
+                    Name = "Store 1"
+                },
+                new TransferItemViewModel
+                {
+                    Id = 2,
+                    Name = "Store 2"
+                },
+                new TransferItemViewModel
+                {
+                    Id = 3,
+                    Name = "Store 3"
+                }
             };
         }
 
@@ -55,6 +75,15 @@ namespace HelloPushNotification.Services
         public async Task<IEnumerable<Item>> GetItemsAsync(bool forceRefresh = false)
         {
             return await Task.FromResult(items);
+        }
+        public async Task<TransferItemViewModel> GetTransferItemAsync(int id)
+        {
+            return await Task.FromResult(transferItems.FirstOrDefault(s => s.Id == id));
+        }
+
+        public async Task<IEnumerable<TransferItemViewModel>> GetTransfersAsync()
+        {
+            return await Task.FromResult(transferItems);
         }
     }
 }
